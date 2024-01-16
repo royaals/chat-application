@@ -5,7 +5,7 @@ export const addUser = async (req, res) => {
     let exist = await User.findOne({ sub: req.body.sub });
     if (exist) {
       res.status(200).json({ msg: "user already exists" });
-      return;s
+      return;
     }
     const newUser = new User(req.body);
     await newUser.save();
